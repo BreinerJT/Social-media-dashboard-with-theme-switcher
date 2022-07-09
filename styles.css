@@ -1,0 +1,213 @@
+:root{
+    --lime-green: hsl(163, 72%, 41%);
+    --bright-red: hsl(356, 69%, 56%);
+    --facebook: hsl(208, 92%, 53%);
+    --twitter: hsl(203, 89%, 53%);
+    --instagram-color-start: 37, 97%, 70%;
+    --instagram-color-end: 329, 70%, 58%;
+    --youTube: hsl(348, 97%, 39%);
+    --toggle-dark-theme: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+    --toggle-light-theme: hsl(230, 22%, 74%);
+}
+*, ::after, ::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+p{
+    font-size: 12px;
+}
+h1, h2, h4, h5{
+    color: var(--primary-text);
+}
+h3, h6{
+    color: var(--secondary-text);
+}
+h6{
+    font-size: 14px;
+}
+body{
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    --background-color: hsl(0, 0%, 100%);
+    --top-background--pattern: hsl(225, 100%, 98%);
+    --card-background: hsl(227, 47%, 96%);
+    --primary-text: hsl(230, 17%, 14%);
+    --secondary-text: hsl(228, 12%, 44%);
+
+}
+body.dark-theme{
+    --background-color: hsl(230, 17%, 14%);
+    --top-background--pattern: hsl(232, 19%, 15%);
+    --card-background: hsl(228, 28%, 20%);
+    --primary-text: hsl(228, 34%, 66%);
+    --secondary-text: hsl(0, 0%, 100%);
+}
+
+/* HEADER */
+
+header{
+    padding: 1rem;
+    background: var(--top-background--pattern);
+}
+.header-title{
+    border-bottom: 1px solid var(--primary-text);
+    padding: 1rem 0;
+}
+.toggle-info{
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.toggle-btn{
+    background-color: var(--toggle-light-theme);
+    border-radius: 20px;
+    width: 40px;
+    height: 20px;
+    position: relative;
+    transition: all 1s;
+    cursor: pointer;
+}
+.toggle-thumb{
+    border-radius: 50%;
+    background-color: var(--background-color);
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 10%;
+    left: 55%;
+    transition: all 0.3s ease-in-out;
+}
+body.dark-theme .toggle-btn{
+    background: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));;
+}
+body.dark-theme .toggle-thumb{
+    left: 5%;
+}
+
+/* STATS CARD SECTION */
+
+main{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1rem;
+}
+.stats-cards--wrapper{
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    margin: 2rem 0;
+}
+.stat-card{
+    background-color: var(--card-background);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    padding: 1rem;
+    gap: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+.stat-card.name, .stat-card.up, .stat-card.down{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+.stat-card:hover, .overview-card:hover{
+    filter: contrast(0.9);
+}
+body.dark-theme .stat-card:hover, body.dark-theme .overview-card:hover{
+    filter: brightness(1.25);
+}
+#facebook-card{
+    border-top: 5px solid var(--facebook);
+}
+#twitter-card{
+    border-top: 5px solid var(--twitter);
+}
+#youtube-card{
+    border-top: 5px solid var(--youTube);
+}
+#instagram-card{
+    border-top: 5px solid transparent;
+    border-image: linear-gradient(to right, hsl(37, 97%, 70%) 50%, hsl(329, 70%, 58%) 100%) 1;
+}
+.followers h6{
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+    font-size: 12px;
+}
+
+/* OVERVIEW SECTION */
+
+.overview-section{
+    margin: 1rem 0;
+    padding: 0 1rem;
+}
+.overview-cards-wrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+.overview-card{
+    background-color: var(--card-background);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+.platform, .info-stats{
+    display: grid;
+    gap: 1rem;
+}
+.platform{
+    text-align: left;
+}
+.logo-container{
+    display: flex;
+    justify-content: end;
+}
+
+.name{
+    font-weight: 700;
+}
+.up{
+    color: var(--lime-green);
+}
+.down{
+    color: var(--bright-red);
+}
+
+@media screen and (min-width: 950px) {
+    header{
+        display: flex;
+        justify-content: space-between;
+    }
+    .header-title{
+        padding: 0 1rem;
+        border: transparent;
+    }
+    .toggle-info{
+        display: flex;
+        gap: 2rem;
+    }
+    .overview-section h3{
+        margin-bottom: 1rem;
+    }
+    .followers h1{
+        font-size: 2.25rem;
+    }
+
+    .platform h2{
+        font-size: 1.5rem;
+    }
+}
